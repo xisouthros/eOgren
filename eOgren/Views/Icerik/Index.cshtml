@@ -1,0 +1,87 @@
+﻿@model IEnumerable<eOgren.tblIcerik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblBolum.BolumAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDers.DersAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblOkul.OkulAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSinif.SinifAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikMetin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikZaman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblBolum.BolumAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDers.DersAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblOkul.OkulAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSinif.SinifAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikMetin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikZaman)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Düzenle", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

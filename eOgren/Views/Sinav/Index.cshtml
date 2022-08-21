@@ -1,0 +1,75 @@
+﻿@model IEnumerable<eOgren.tblSinavlar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblIcerik.IcerikBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblIcerik1.IcerikBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblIcerik2.IcerikBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblIcerik3.IcerikBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblKullanici.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSinavSoru.Soru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SinavTipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblIcerik.IcerikBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblIcerik1.IcerikBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblIcerik2.IcerikBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblIcerik3.IcerikBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblKullanici.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSinavSoru.Soru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinavTipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Düzenle", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

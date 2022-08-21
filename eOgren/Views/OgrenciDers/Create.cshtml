@@ -1,0 +1,256 @@
+﻿@model eOgren.tblOgrenciDers
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    DataModel db = new DataModel();
+    var Dersler = from od in db.tblOgrenciDers
+                  join ders in db.tblDers on od.DersRef equals ders.ID
+                  where ders.ID == Model.DersRef
+                  select new { ID = ders.ID, DersAd = ders.DersAd };
+
+
+    var Ogrenciler = from Kullanici in db.tblKullanici
+                     where Kullanici.Tip == "Öğrenci" && Kullanici.Durum == true
+                     select new { ID = Kullanici.ID, Ogrenci = Kullanici.Adi + " " + Kullanici.Soyadi };
+
+    /*
+    Öğrencieri çek
+
+
+    Dersleri çek
+
+
+    öğrenciler derslerin içine taşınabilsin
+    */
+
+}
+<div class="row content-panel mt mb">
+    <div class="col-md-5">
+        <div class="container" style="margin-left:10%;"><b style="font-family: 'Trebuchet-MS'; font-size: 18px; box-shadow: 5px 5px 8px gray;">Dersler</b></div>
+        @foreach (var item in Dersler)
+        {
+            <div class="row container">
+                @item.DersAd
+                <div class="dropzone"  ondragend="DbyeEke(this)"></div>
+            </div>
+        }
+
+
+
+    </div>
+    <div class="col-md-2">
+        <p>Öğrenciler</p>
+        <div class="dropzone">
+            @foreach (var item in Ogrenciler)
+            {
+            <div id="draggable" draggable="true" title="@item.ID" ondragend="DbyeEke(this)" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                @item.Ogrenci
+            </div>
+           
+            }
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    #draggable {
+        width: 200px;
+        height: 30px;
+        text-align: center;
+        background: white;
+    }
+
+    .dropzone {
+        width: 250px;
+        height: 250px;
+        background: lightblue;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .dropzoneSinif {
+        width: 250px;
+        height: 250px;
+        background: lightgreen;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+</style>
+
+<script>
+    function DbyeEke(nesne) {
+
+        if (nesne.title != '') {
+            var OgrenciID = nesne.title;
+            var OgrRef = String(OgrenciID);
+            var DersR = String(@Model.DersRef);
+
+        $.ajax({
+            url: '/OgrenciDers/OgrenciEkle',
+            data: { _DersRef: DersR, _OgrenciRef: OgrRef },
+            type: "POST",
+            success: function () {
+                alert('Added');
+            }
+        }); }
+        else return;
+
+
+    };
+</script>
+
+<script>
+    var dragged;
+
+    /* events fired on the draggable target */
+    document.addEventListener("drag", function (event) {
+
+    }, false);
+
+    document.addEventListener("dragstart", function (event) {
+        // store a ref. on the dragged elem
+        dragged = event.target;
+        // make it half transparent
+        event.target.style.opacity = .5;
+    }, false);
+
+    document.addEventListener("dragend", function (event) {
+        // reset the transparency
+        event.target.style.opacity = "";
+
+      
+    }, false);
+
+    /* events fired on the drop targets */
+    document.addEventListener("dragover", function (event) {
+        // prevent default to allow drop
+        event.preventDefault();
+    }, false);
+
+    document.addEventListener("dragenter", function (event) {
+        // highlight potential drop target when the draggable element enters it
+        if (event.target.className == "dropzone") {
+            event.target.style.background = "purple";
+        }
+
+    }, false);
+
+    document.addEventListener("dragleave", function (event) {
+        // reset background of potential drop target when the draggable element leaves it
+        if (event.target.className == "dropzone") {
+            event.target.style.background = "";
+        }
+
+    }, false);
+
+    document.addEventListener("drop", function (event) {
+        // prevent default action (open as link for some elements)
+        event.preventDefault();
+        // move dragged elem to the selected drop target
+        if (event.target.className == "dropzone") {
+            event.target.style.background = "";
+            dragged.parentNode.removeChild(dragged);
+            event.target.appendChild(dragged);
+        }
+
+    }, false);
+</script>
+
+
+<script>
+    var dragged;
+
+    /* events fired on the draggable target */
+    document.addEventListener("drag", function (event) {
+
+    }, false);
+
+    document.addEventListener("dragstart", function (event) {
+        // store a ref. on the dragged elem
+        dragged = event.target;
+        // make it half transparent
+        event.target.style.opacity = .5;
+    }, false);
+
+    document.addEventListener("dragend", function (event) {
+        // reset the transparency
+        event.target.style.opacity = "";
+    }, false);
+
+    /* events fired on the drop targets */
+    document.addEventListener("dragover", function (event) {
+        // prevent default to allow drop
+        event.preventDefault();
+    }, false);
+
+    document.addEventListener("dragenter", function (event) {
+        // highlight potential drop target when the draggable element enters it
+        if (event.target.className == "dropzoneSinif") {
+            event.target.style.background = "yellow";
+        }
+
+    }, false);
+
+    document.addEventListener("dragleave", function (event) {
+        // reset background of potential drop target when the draggable element leaves it
+        if (event.target.className == "dropzoneSinif") {
+            event.target.style.background = "";
+        }
+
+    }, false);
+
+    document.addEventListener("drop", function (event) {
+        // prevent default action (open as link for some elements)
+        event.preventDefault();
+        // move dragged elem to the selected drop target
+        if (event.target.className == "dropzoneSinif") {
+            event.target.style.background = "";
+            dragged.parentNode.removeChild(dragged);
+            event.target.appendChild(dragged);
+        }
+
+    }, false);
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @*<div class="form-horizontal">
+            <h4>tblOgrenciDers</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.OgrenciRef, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OgrenciRef, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OgrenciRef, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DersRef, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DersRef, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DersRef, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<eOgren.tblIcerik>
+
+@{
+    ViewBag.Title = "icerikDetay";
+}
+
+
+
+<div class="chat-room mt">
+    <aside class="mid-side">
+        <div class="chat-room-head">
+            <h3>@Model.FirstOrDefault().IcerikBaslik</h3>
+        </div>
+        <div class="group-rom">
+            <iframe width="560" height="315" src="@Model.FirstOrDefault().IcerikLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="group-rom last-group">
+            <div class="first-part odd">@Model.FirstOrDefault().IcerikBaslik</div>
+            <div class="second-part">@Model.FirstOrDefault().IcerikMetin</div>
+            <div class="third-part">@Model.FirstOrDefault().IcerikAciklama</div>
+        </div>
+
+    </aside>
+
+
+    <aside class="right-side">
+        <div class="invite-row">
+            <h4 class="pull-left">Bölümler</h4>
+        </div>
+        <ul class="chat-available-user">
+            @{
+                DataModel mm = new DataModel();
+
+                var Icerikler = from x in mm.tblIcerik
+                                select x;
+
+
+                foreach (var item in Icerikler)
+                {
+
+                    <li>
+                        <a href='@Url.Action("icerikDetay", "Main", new { id = item.ID })'>
+                            <img height="35px" width="35px" src='@Url.Content("/Content/Genel/img/friends/fr-02.jpg")' />
+                            <span class="text-muted">@item.IcerikBaslik - @item.IcerikZaman</span>
+                        </a>
+                    </li>
+                }
+            }
+
+
+        </ul>
+    </aside>
+</div>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/Content/Genel/lib/jquery/jquery.min.js"></script>
+<script src="/Content/Genel/lib/bootstrap/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="/Content/Genel/lib/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/Content/Genel//jquery.scrollTo.min.js"></script>
+<script src="/Content/Genel/lib/jquery.nicescroll.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="/Content/Genel/lib/common-scripts.js"></script>
+<!--script for this page-->
+<style>
+    datalist.linkImage {
+        background: url(../Content/Genel/img/friends/fr-02.jpg) no-repeat top left;
+       /* hides the link text */
+    }
+</style>

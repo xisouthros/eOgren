@@ -1,0 +1,46 @@
+﻿@model IEnumerable<eOgren.tblIcerik>
+
+
+@{
+    ViewBag.Title = "icerik";
+}
+
+<!-- Favicons -->
+<link href="/Content/Genel/img/favicon.png" rel="icon">
+<link href="/Content/Genel/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Bootstrap core CSS -->
+<link href="/Content/Genel/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--external css-->
+<link href="/Content/Genel/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="/Content/Genel/css/style.css" rel="stylesheet">
+<link href="/Content/Genel/css/style-responsive.css" rel="stylesheet">
+
+
+<h3><i class="fa fa-angle-right"></i> Siber Güvenlik</h3>
+
+
+
+@foreach (var item in Model)
+{
+
+<div class="row content-panel mt mb">
+    <div class="col-md-6">
+        <h3 contenteditable="false">
+            @Html.ActionLink(item.IcerikBaslik, "icerikDetay","Main",new { id = item.ID }, new { })
+
+        </h3>
+        <h3 contenteditable="false"><a href="#">1. Bölüm Temel Kavramlar</a></h3>
+        <h3 contenteditable="false"><a href="#">1. Bölüm Kısa Sınav</a></h3>
+        <h3 contenteditable="false"><a href="#">1. Bölüm sınav</a></h3>
+    </div>
+    <div class="col-md-6">
+        <p contenteditable="true" class="mt"> <input height="15px" type="checkbox" name="Izlendi" value="" /></p>
+        <p contenteditable="true" class="mt"> <input height="15px" type="checkbox" name="Izlendi" value="" /></p>
+        <p contenteditable="true" class="mt"> <input height="15px" type="checkbox" name="Izlendi" value="" /></p>
+        <p contenteditable="true" class="mt"> <input height="15px" type="checkbox" name="Izlendi" value="" /></p>
+    </div>
+</div>
+        }
+    

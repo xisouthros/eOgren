@@ -1,0 +1,82 @@
+﻿@model eOgren.tblSinavlar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSinavlar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblIcerik.IcerikBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblIcerik.IcerikBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblIcerik1.IcerikBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblIcerik1.IcerikBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblIcerik2.IcerikBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblIcerik2.IcerikBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblIcerik3.IcerikBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblIcerik3.IcerikBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblKullanici.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblKullanici.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSinavSoru.Soru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSinavSoru.Soru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinavTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinavTipi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Düzenle", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

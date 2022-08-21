@@ -1,0 +1,50 @@
+﻿@model eOgren.tblOgrenciSinav
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblOgrenciSinav</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblKullanici.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblKullanici.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSinavSoru.Soru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSinavSoru.Soru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CevapRef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CevapRef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model eOgren.tblDers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblDers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblBolum.BolumAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblBolum.BolumAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblOkul.OkulAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblOkul.OkulAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSinif.SinifAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSinif.SinifAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DersAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DersAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Düzenle", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

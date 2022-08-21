@@ -1,0 +1,82 @@
+﻿@model eOgren.tblSinavSoru
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSinavSoru</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Soru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cevap1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cevap1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cevap2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cevap2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cevap3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cevap3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cevap4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cevap4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cevap5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cevap5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogruCevap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogruCevap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Düzenle", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

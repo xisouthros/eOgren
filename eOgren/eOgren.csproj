@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23AF3232-6067-4759-9F2C-88954A3E65C2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eOgren</RootNamespace>
+    <AssemblyName>eOgren</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DersController.cs" />
+    <Compile Include="Controllers\GirisController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IcerikController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\OgrenciDersController.cs" />
+    <Compile Include="Controllers\OgrenciSinavController.cs" />
+    <Compile Include="Controllers\SinavController.cs" />
+    <Compile Include="Controllers\SinifController.cs" />
+    <Compile Include="Controllers\tblSinavSorusController.cs" />
+    <Compile Include="DataModel.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="tblBolum.cs" />
+    <Compile Include="tblDers.cs" />
+    <Compile Include="tblDuyuru.cs" />
+    <Compile Include="tblIcerik.cs" />
+    <Compile Include="tblKullanici.cs" />
+    <Compile Include="tblKullaniciYetki.cs" />
+    <Compile Include="tblMenu.cs" />
+    <Compile Include="tblMenuAlt.cs" />
+    <Compile Include="tblNotlar.cs" />
+    <Compile Include="tblOgrenciDers.cs" />
+    <Compile Include="tblOgrenciSinav.cs" />
+    <Compile Include="tblOkul.cs" />
+    <Compile Include="tblSinavlar.cs" />
+    <Compile Include="tblSinavSoru.cs" />
+    <Compile Include="tblSinif.cs" />
+    <Compile Include="tblVideo.cs" />
+    <Compile Include="tblYildizlar.cs" />
+    <Compile Include="tblYorumlar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Genel\contactform\Readme.txt" />
+    <Content Include="Content\Genel\css\style-responsive.css" />
+    <Content Include="Content\Genel\css\style.css" />
+    <Content Include="Content\Genel\css\table-responsive.css" />
+    <Content Include="Content\Genel\css\to-do.css" />
+    <Content Include="Content\Genel\css\zabuto_calendar.css" />
+    <Content Include="Content\Genel\img\404.png" />
+    <Content Include="Content\Genel\img\500.png" />
+    <Content Include="Content\Genel\img\apple-touch-icon.png" />
+    <Content Include="Content\Genel\img\blog-bg.jpg" />
+    <Content Include="Content\Genel\img\checkbox-gray.png" />
+    <Content Include="Content\Genel\img\favicon.png" />
+    <Content Include="Content\Genel\img\friends\fr-01.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-02.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-03.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-04.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-05.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-06.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-07.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-08.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-09.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-10.jpg" />
+    <Content Include="Content\Genel\img\friends\fr-11.jpg" />
+    <Content Include="Content\Genel\img\instagram.jpg" />
+    <Content Include="Content\Genel\img\login-bg.jpg" />
+    <Content Include="Content\Genel\img\lorde.jpg" />
+    <Content Include="Content\Genel\img\mask.png" />
+    <Content Include="Content\Genel\img\ny.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port01.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port02.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port03.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port04.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port05.jpg" />
+    <Content Include="Content\Genel\img\portfolio\port06.jpg" />
+    <Content Include="Content\Genel\img\product.jpg" />
+    <Content Include="Content\Genel\img\profile-01.jpg" />
+    <Content Include="Content\Genel\img\profile-02.jpg" />
+    <Content Include="Content\Genel\img\radio-gray.png" />
+    <Content Include="Content\Genel\img\ui-danro.jpg" />
+    <Content Include="Content\Genel\img\ui-divya.jpg" />
+    <Content Include="Content\Genel\img\ui-sam.jpg" />
+    <Content Include="Content\Genel\img\ui-sherman.jpg" />
+    <Content Include="Content\Genel\img\ui-zac.jpg" />
+    <Content Include="Content\Genel\img\weather.jpg" />
+    <Content Include="Content\Genel\img\zoom.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\demo_page.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\demo_table.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\demo_table_jui.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\DT_bootstrap.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\jquery.dataTables.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\back_disabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\back_enabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\back_enabled_hover.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\details_close.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\details_open.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\favicon.ico" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\forward_disabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\forward_enabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\forward_enabled_hover.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\sort_asc.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\sort_asc_disabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\sort_both.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\sort_desc.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\sort_desc_disabled.png" />
+    <Content Include="Content\Genel\lib\advanced-datatable\js\DT_bootstrap.js" />
+    <Content Include="Content\Genel\lib\advanced-datatable\js\jquery.dataTables.js" />
+    <Content Include="Content\Genel\lib\advanced-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Genel\lib\advanced-datatable\js\jquery.js" />
+    <Content Include="Content\Genel\lib\advanced-form-components.js" />
+    <Content Include="Content\Genel\lib\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\Genel\lib\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\Genel\lib\bootstrap-daterangepicker\date.js" />
+    <Content Include="Content\Genel\lib\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Content\Genel\lib\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Genel\lib\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Genel\lib\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Content\Genel\lib\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Content\Genel\lib\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Genel\lib\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="Content\Genel\lib\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="Content\Genel\lib\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="Content\Genel\lib\bootstrap-switch.js" />
+    <Content Include="Content\Genel\lib\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Content\Genel\lib\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Content\Genel\lib\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Content\Genel\lib\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Content\Genel\lib\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Content\Genel\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Genel\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Genel\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Genel\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Genel\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Genel\lib\calendar-conf-events.js" />
+    <Content Include="Content\Genel\lib\chart-master\Chart.js" />
+    <Content Include="Content\Genel\lib\chartjs-conf.js" />
+    <Content Include="Content\Genel\lib\ckeditor\ckeditor.js" />
+    <Content Include="Content\Genel\lib\common-scripts.js" />
+    <Content Include="Content\Genel\lib\dropzone\css\dropzone.css" />
+    <Content Include="Content\Genel\lib\dropzone\dropzone.js" />
+    <Content Include="Content\Genel\lib\dropzone\images\spritemap%402x.png" />
+    <Content Include="Content\Genel\lib\dropzone\images\spritemap.png" />
+    <Content Include="Content\Genel\lib\easy-pie-chart.js" />
+    <Content Include="Content\Genel\lib\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\Genel\lib\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\Genel\lib\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\Genel\lib\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\Genel\lib\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\Genel\lib\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="Content\Genel\lib\file-uploader\img\loading.gif" />
+    <Content Include="Content\Genel\lib\file-uploader\img\progressbar.gif" />
+    <Content Include="Content\Genel\lib\file-uploader\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\main.js" />
+    <Content Include="Content\Genel\lib\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\Genel\lib\flotchart-conf.js" />
+    <Content Include="Content\Genel\lib\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\Genel\lib\flot\jquery.flot.js" />
+    <Content Include="Content\Genel\lib\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Genel\lib\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Genel\lib\flot\jquery.flot.stack.js" />
+    <Content Include="Content\Genel\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Genel\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Genel\lib\form-component.js" />
+    <Content Include="Content\Genel\lib\form-validation-script.js" />
+    <Content Include="Content\Genel\lib\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Content\Genel\lib\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Content\Genel\lib\google-maps\data\points.js" />
+    <Content Include="Content\Genel\lib\google-maps\maplace.js" />
+    <Content Include="Content\Genel\lib\gritter-conf.js" />
+    <Content Include="Content\Genel\lib\gritter\css\jquery.gritter.css" />
+    <Content Include="Content\Genel\lib\gritter\css\jquery.gritter0.css" />
+    <Content Include="Content\Genel\lib\gritter\images\gritter-light.png" />
+    <Content Include="Content\Genel\lib\gritter\images\gritter-long.png" />
+    <Content Include="Content\Genel\lib\gritter\images\gritter.png" />
+    <Content Include="Content\Genel\lib\gritter\images\ie-spacer.gif" />
+    <Content Include="Content\Genel\lib\gritter\js\jquery.gritter.js" />
+    <Content Include="Content\Genel\lib\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="Content\Genel\lib\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="Content\Genel\lib\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Content\Genel\lib\jquery.backstretch.min.js" />
+    <Content Include="Content\Genel\lib\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Content\Genel\lib\jquery.nicescroll.js" />
+    <Content Include="Content\Genel\lib\jquery.scrollTo.min.js" />
+    <Content Include="Content\Genel\lib\jquery.sparkline.js" />
+    <Content Include="Content\Genel\lib\jquery.tagsinput.js" />
+    <Content Include="Content\Genel\lib\jquery.ui.touch-punch.min.js" />
+    <Content Include="Content\Genel\lib\jquery\jquery.js" />
+    <Content Include="Content\Genel\lib\jquery\jquery.min.js" />
+    <Content Include="Content\Genel\lib\morris-conf.js" />
+    <Content Include="Content\Genel\lib\morris\morris.min.js" />
+    <Content Include="Content\Genel\lib\php-mail-form\validate.js" />
+    <Content Include="Content\Genel\lib\raphael\raphael.min.js" />
+    <Content Include="Content\Genel\lib\sparkline-chart.js" />
+    <Content Include="Content\Genel\lib\tasks.js" />
+    <Content Include="Content\Genel\lib\xchart\d3.v3.min.js" />
+    <Content Include="Content\Genel\lib\xchart\xcharts.css" />
+    <Content Include="Content\Genel\lib\xchart\xcharts.min.js" />
+    <Content Include="Content\Genel\lib\zabuto_calendar.js" />
+    <Content Include="Content\Giris\css\main.css" />
+    <Content Include="Content\Giris\css\util.css" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Content\Giris\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\Giris\fonts\raleway\OFL.txt" />
+    <Content Include="Content\Giris\images\avatar-01.jpg" />
+    <Content Include="Content\Giris\images\icons\favicon.ico" />
+    <Content Include="Content\Giris\images\icons\icon-google.png" />
+    <Content Include="Content\Giris\images\img-01.jpg" />
+    <Content Include="Content\Giris\js\main.js" />
+    <Content Include="Content\Giris\vendor\animate\animate.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Giris\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Giris\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Giris\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Giris\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Giris\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Giris\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\Giris\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\Giris\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Giris\vendor\select2\select2.css" />
+    <Content Include="Content\Giris\vendor\select2\select2.js" />
+    <Content Include="Content\Giris\vendor\select2\select2.min.css" />
+    <Content Include="Content\Giris\vendor\select2\select2.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Giris\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Content\Giris\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\Giris\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\Giris\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Black.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-BlackItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Bold.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-BoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-ExtraBold.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-ExtraLight.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Italic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Light.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-LightItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Medium.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-MediumItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Regular.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-SemiBold.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-Thin.ttf" />
+    <Content Include="Content\Giris\fonts\raleway\Raleway-ThinItalic.ttf" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Giris\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\Genel\contactform\contactform.php" />
+    <Content Include="Content\Genel\lib\advanced-datatable\images\Sorting icons.psd" />
+    <Content Include="Content\Genel\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Genel\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Genel\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Genel\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Genel\lib\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Kullanici\Index.cshtml" />
+    <Content Include="Views\Kullanici\Details.cshtml" />
+    <Content Include="Views\Kullanici\Create.cshtml" />
+    <Content Include="Views\Kullanici\Edit.cshtml" />
+    <Content Include="Views\Kullanici\Delete.cshtml" />
+    <Content Include="Views\Giris\eOgren.cshtml" />
+    <Content Include="Views\Main\eOgrenme.cshtml" />
+    <Content Include="Views\Main\icerik.cshtml" />
+    <Content Include="Views\Main\icerikDetay.cshtml" />
+    <Content Include="Views\tblSinavSorus\Create.cshtml" />
+    <Content Include="Views\tblSinavSorus\Delete.cshtml" />
+    <Content Include="Views\tblSinavSorus\Details.cshtml" />
+    <Content Include="Views\tblSinavSorus\Edit.cshtml" />
+    <Content Include="Views\tblSinavSorus\Index.cshtml" />
+    <Content Include="Views\Sinav\Create.cshtml" />
+    <Content Include="Views\Sinav\Delete.cshtml" />
+    <Content Include="Views\Sinav\Details.cshtml" />
+    <Content Include="Views\Sinav\Edit.cshtml" />
+    <Content Include="Views\Sinav\Index.cshtml" />
+    <Content Include="Views\Sinif\Create.cshtml" />
+    <Content Include="Views\Sinif\Delete.cshtml" />
+    <Content Include="Views\Sinif\Details.cshtml" />
+    <Content Include="Views\Sinif\Edit.cshtml" />
+    <Content Include="Views\Sinif\Index.cshtml" />
+    <Content Include="Views\Ders\Create.cshtml" />
+    <Content Include="Views\Ders\Delete.cshtml" />
+    <Content Include="Views\Ders\Details.cshtml" />
+    <Content Include="Views\Ders\Edit.cshtml" />
+    <Content Include="Views\Ders\Index.cshtml" />
+    <Content Include="Views\OgrenciDers\Create.cshtml" />
+    <Content Include="Views\OgrenciDers\Delete.cshtml" />
+    <Content Include="Views\OgrenciDers\Details.cshtml" />
+    <Content Include="Views\OgrenciDers\Edit.cshtml" />
+    <Content Include="Views\OgrenciDers\Index.cshtml" />
+    <Content Include="Views\Icerik\Create.cshtml" />
+    <Content Include="Views\Icerik\Delete.cshtml" />
+    <Content Include="Views\Icerik\Details.cshtml" />
+    <Content Include="Views\Icerik\Edit.cshtml" />
+    <Content Include="Views\Icerik\Index.cshtml" />
+    <Content Include="Views\OgrenciSinav\Create.cshtml" />
+    <Content Include="Views\OgrenciSinav\Delete.cshtml" />
+    <Content Include="Views\OgrenciSinav\Details.cshtml" />
+    <Content Include="Views\OgrenciSinav\Edit.cshtml" />
+    <Content Include="Views\OgrenciSinav\Index.cshtml" />
+    <Content Include="Views\Giris\YeniKullanici.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57348</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44323/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

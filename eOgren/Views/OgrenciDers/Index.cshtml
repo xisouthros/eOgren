@@ -1,0 +1,51 @@
+﻿@model IEnumerable<eOgren.tblOgrenciDers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>Sınıf Ad</th>
+        <th>Ders Ad</th>
+    </tr>
+@{ 
+    DataModel db = new DataModel();
+    var OgrenciDersEs = from ders in db.tblDers  
+                        join sinif in db.tblSinif on ders.SinifRef equals sinif.ID
+                        select new { ID = ders.ID, SinifAd = sinif.SinifAd ,DersRef = ders.ID ,DersAd = ders.DersAd };
+
+
+}
+
+
+@foreach (var item in OgrenciDersEs) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SinifAd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DersAd)
+    </td>
+
+    <td>
+        @Html.ActionLink("Düzenle", "Düzenle", new { id = item.DersRef }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        @Html.ActionLink("Create New", "Create", new { id = item.DersRef })
+    </td>
+</tr>
+}
+
+</table>

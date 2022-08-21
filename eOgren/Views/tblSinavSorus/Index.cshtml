@@ -1,0 +1,75 @@
+﻿@model IEnumerable<eOgren.tblSinavSoru>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Soru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevap1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevap2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevap3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevap4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevap5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DogruCevap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevap1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevap2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevap3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevap4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevap5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DogruCevap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Düzenle", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,228 @@
+﻿@model eOgren.tblIcerik
+
+@{
+
+    ViewBag.Title = "eOgrenme";
+
+    tblKullanici k = (tblKullanici)Session["Kullanici"];
+}
+
+<div class="row">
+    <div class="col-lg-9 main-chart">
+        <!--CUSTOM CHART START -->
+        <div class="border-head">
+            <h3><i class="fa fa-angle-right"></i> Eğitim Takvimi</h3>
+        </div>
+        <div class="row mb">
+            <!-- page start-->
+            <div class="content-panel">
+                <div class="adv-table">
+                    <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                        <thead>
+                            <tr>
+                                <th>Okul</th>
+                                <th class="hidden-phone">Bölüm</th>
+                                <th>Sınıf</th>
+                                <th class="hidden-phone">Katıl</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                DataModel dataModel = new DataModel();
+
+                                var DersBaglanti = from o in dataModel.tblOkul
+                                                   join bo in dataModel.tblBolum on o.ID equals bo.OkulRef
+                                                   join s in dataModel.tblSinif on bo.ID equals s.BolumRef
+                                                   join od in dataModel.tblOgrenciDers on s.ID equals od.DersRef
+                                                   where od.OgrenciRef == k.ID
+                                                   select new { o.OkulAd, bo.BolumAd, s.SinifAd };
+
+
+
+                                foreach (var item in DersBaglanti)
+                                {
+                                                        <tr class="gradeX">
+                                                            <td>@item.OkulAd</td>
+                                                            <td class="hidden-phone">@item.BolumAd</td>
+                                                            <td>@item.SinifAd</td>
+                                                            <td class="center hidden-phone">@Html.ActionLink("Derse Git", "icerik", "Main", new { Ders = item.BolumAd }, new { })</td>
+                                                        </tr>
+                                }
+                            }
+
+                            @*<tr class="gradeU">
+            <td>Adli Bilirkişi</td>
+            <td>Dç Dr.</td>
+            <td class="hidden-phone">Perşembe</td>
+            <td class="center hidden-phone">19:00</td>
+            <td class="center hidden-phone">Link</td>
+        </tr>
+        <tr class="gradeC">
+            <td>Dönem Projesi</td>
+            <td>Doç Dr Çelebi Uluyol</td>
+            <td class="hidden-phone">7/24</td>
+            <td class="center hidden-phone">7/24</td>
+            <td class="center hidden-phone">Link</td>
+        </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- page end-->
+        </div>
+
+        <!--custom chart end-->
+        <div class="row mt">
+            <!-- SERVER STATUS PANELS -->
+            <div class="col-md-4 col-sm-4 mb">
+                <div class="grey-panel pn donut-chart">
+                    <div class="grey-header">
+                        <h5>Ders Katılım Durumu</h5>
+                    </div>
+                    <canvas id="serverstatus01" height="120" width="120"></canvas>
+                    <script>
+                        var doughnutData = [{
+                            value: 90,
+                            color: "#FF6B6B"
+                        },
+                        {
+                            value: 10,
+                            color: "#fdfdfd"
+                        }
+                        ];
+                        var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
+                    </script>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6 goleft">
+                            <p>Katılım<br />oranı:</p>
+                        </div>
+                        <div class="col-sm-6 col-xs-6">
+                            <h2>90%</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- /grey-panel -->
+            </div>
+            <!-- /col-md-4-->
+            <!-- DIRECT MESSAGE PANEL -->
+            <div class="col-md-8 mb">
+                <div class="message-p pn">
+                    <div class="message-header">
+                        <h5>Ders Hakkında Son Yorumlar</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 centered hidden-sm hidden-xs">
+                            <img src="/Content/Genel/img/ui-danro.jpg" class="img-circle" width="65">
+                        </div>
+                        <div class="col-md-9">
+                            <p>
+                                <name>Dç Dr. Çelebi Uluyol</name>
+                                mesaj gönderdi.
+                            </p>
+                            <p class="small">10 dakika önce</p>
+                            <p class="message">Cihat tasarımı hızlandıralım, arayüzü bir görmek istiyorum.</p>
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputText" placeholder="Cevap Yaz">
+                                </div>
+                                <button type="submit" class="btn btn-default">Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Message Panel-->
+            </div>
+            <!-- /col-md-4 -->
+        </div>
+
+    </div>
+    <!-- /col-lg-9 END SECTION MIDDLE -->
+    <!-- **********************************************************************************************************************************************************
+        RIGHT SIDEBAR CONTENT
+        *********************************************************************************************************************************************************** -->
+    <div class="col-lg-3 ds">
+        <!--COMPLETED ACTIONS DONUTS CHART-->
+        <div class="donut-main">
+            <h4>DUYURULAR</h4>
+        </div>
+        <!-- RECENT ACTIVITIES SECTION -->
+        <!-- First Activity -->
+        <div class="desc">
+            <div class="thumb">
+                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+            </div>
+            <div class="details">
+                <p>
+                    <muted>16.10.2021 </muted>
+                    <br />
+                    <a href="#">Görüntü ve Ses İnceleme</a> Bu akşam ders ertelenmiştir<br />
+                </p>
+            </div>
+        </div>
+
+        <!-- USERS ONLINE SECTION -->
+        <h4 class="centered mt">Sınıftaki Online Öğrenciler</h4>
+        <!-- First Member -->
+        <div class="desc">
+            <div class="thumb">
+                <img class="img-circle" src="~/Content/Genel/img/ui-sam.jpg" width="35px" height="35px" align="">
+            </div>
+            <div class="details">
+                <p>
+                    <a href="#">Cihat Çalışkan</a><br />
+                    <muted>Müsait</muted>
+                </p>
+            </div>
+        </div>
+        <!-- CALENDAR-->
+        <div id="calendar" class="mb">
+            <div class="panel green-panel no-margin">
+                <div class="panel-body">
+                    <div id="date-popover" class="popover top" style="cursor:pointer; disadding:block; margin-left:33%; margin-top:-50px; width:175px;">
+                        <div class="arrow"></div>
+                        <h3 class="popover-title" style="disadding:none;"></h3>
+                        <div id="date-popover-content" class="popover-content"></div>
+                    </div>
+                    <div id="my-calendar"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#date-popover").popover({
+                    html: true,
+                    trigger: "manual"
+                });
+                $("#date-popover").hide();
+                $("#date-popover").click(function (e) {
+                    $(this).hide();
+                });
+
+                $("#my-calendar").zabuto_calendar({
+                    action: function () {
+                        return myDateFunction(this.id, false);
+                    },
+                    action_nav: function () {
+                        return myNavFunction(this.id);
+                    },
+                    ajax: {
+                        url: "#",
+                        modal: true
+                    }
+                  
+                });
+            });
+
+            function myNavFunction(id) {
+                $("#date-popover").hide();
+                var nav = $("#" + id).data("navigation");
+                var to = $("#" + id).data("to");
+                console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+            }
+
+        </script>
+        <!-- / calendar -->
+    </div>
+    <!-- /col-lg-3 -->
+</div>
+<!-- /row -->

@@ -1,0 +1,98 @@
+﻿@model eOgren.tblIcerik
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblIcerik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblBolum.BolumAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblBolum.BolumAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblDers.DersAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDers.DersAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblOkul.OkulAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblOkul.OkulAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSinif.SinifAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSinif.SinifAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikMetin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikMetin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikZaman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikZaman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Düzenle", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
